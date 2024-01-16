@@ -1,0 +1,1 @@
+<footer>Super footer.</footer>
