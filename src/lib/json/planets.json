@@ -1,0 +1,69 @@
+{
+    "planets": [
+      {
+        "name": "Mercury",
+        "characteristics": {
+          "radius": 2439.7,
+          "mass": 0.33011,
+          "distance_from_sun": 57.91
+        }
+      },
+      {
+        "name": "Venus",
+        "characteristics": {
+          "radius": 6051.8,
+          "mass": 4.8675,
+          "distance_from_sun": 108.2
+        }
+      },
+      {
+        "name": "Earth",
+        "characteristics": {
+          "radius": 6371,
+          "mass": 5.972,
+          "distance_from_sun": 149.6
+        }
+      },
+      {
+        "name": "Mars",
+        "characteristics": {
+          "radius": 3389.5,
+          "mass": 0.64171,
+          "distance_from_sun": 227.9
+        }
+      },
+      {
+        "name": "Jupiter",
+        "characteristics": {
+          "radius": 69911,
+          "mass": 1898.19,
+          "distance_from_sun": 778.3
+        }
+      },
+      {
+        "name": "Saturn",
+        "characteristics": {
+          "radius": 58232,
+          "mass": 568.34,
+          "distance_from_sun": 1427
+        }
+      },
+      {
+        "name": "Uranus",
+        "characteristics": {
+          "radius": 25362,
+          "mass": 86.813,
+          "distance_from_sun": 2871
+        }
+      },
+      {
+        "name": "Neptune",
+        "characteristics": {
+          "radius": 24622,
+          "mass": 102.413,
+          "distance_from_sun": 4497
+        }
+      }
+    ]
+  }
+  
