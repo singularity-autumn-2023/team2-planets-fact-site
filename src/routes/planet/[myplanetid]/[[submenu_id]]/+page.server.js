@@ -20,7 +20,7 @@ export async function load({ params }) {
 
 
     return {
-      product: fetchData()
+      superPlanets: fetchData()
     }
   
   }

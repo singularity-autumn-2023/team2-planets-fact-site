@@ -1,7 +1,7 @@
 <script>
 	export let data;
     let superData = {};
-    let product1 = data.product.then(result => {
+    let superPlanets1 = data.superPlanets.then(result => {
         // console.log('promiseBresult') ;
         // console.log(result) ;
 
