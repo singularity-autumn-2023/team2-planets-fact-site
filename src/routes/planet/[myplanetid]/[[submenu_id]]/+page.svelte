@@ -1,22 +1,18 @@
 <script>
 	export let data;
+    let superData = {};
+    let product1 = data.product.then(result => {
+        // console.log('promiseBresult') ;
+        // console.log(result) ;
 
-let superData = {};
+        superData.id = result.id;
+        superData.name = result.name;
+        superData.weight = result.weight;
 
-let product1 = data.product.then(result => {
-    // console.log('promiseBresult') ;
-    // console.log(result) ;
-
-    superData.id = result.id;
-    superData.name = result.name;
-    superData.weight = result.weight;
-
-     return (result) ;
-});    
-
+        return (result) ;
+    });    
     console.log('superData');
     console.log(superData) ;
-
 </script>
 
 <article>

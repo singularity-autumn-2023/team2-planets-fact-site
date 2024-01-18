@@ -1,11 +1,6 @@
-<!-- Header.svelte -->
-
 <script>
 console.log('test: ' + 2*6);
 </script>
-
-
-
 
 <header>
 	<a href="/">Home</a>

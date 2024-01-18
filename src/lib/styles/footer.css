@@ -1,91 +1,142 @@
-
-
-
  /* ##Device = Desktops */
  @media (min-width: 1440px) {
 	 
-    footer .header__container {
-        border:1px solid red;
+  footer .header__container {
+      border:1px solid red;
+  }
+  
+  .footer__container__list {
+      display: flex;
+      flex-direction: row;
+      justify-content:space-between;       /*   horizontally */
+      align-items: center;           /*   vertically */
+      align-content: center;   
+      border: 0px solid #138526;
     }
     
+    .footer__container__list__characteristic {
+      border: 1px solid #FFF;
+      opacity: 0.2;
+      margin-bottom: 1rem;
+      min-height  : 3rem;
+      width: calc(85%/4);
+      padding-bottom: 1.69rem;
+      padding-left: 1.44rem;
+    }
+  
+    .footer__container__list__characteristic__item {
+      color: #FFF;
+      font-family: Spartan;
+      font-size: 0.6875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.5625rem; 
+      letter-spacing: 0.0625rem;
+      text-transform: uppercase;
+      padding-top: 1rem;
+      padding-left: 0.94rem;
+      padding-right: 0.94rem;
+  
+    }
     
+    .footer__container__list__characteristic__content {
+      color: #FFF;
+      font-family: Antonio;
+      font-size: 2.5rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.09375rem;
+      text-transform: uppercase;
+      border: 0px solid red;
+      display: flex;
+      justify-content: flex-start;
+      padding-right: 0.94rem;
+      padding-top: 0.6rem;
+      padding-left: 0.94rem;
+    }
+    
+}
+    
+/* ##Device = Tablets, Ipads (portrait) */
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+footer .header__container {
+    border:1px solid red;
+}
+
+.footer__container__list {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;       /*   horizontally */
+    align-items: center;           /*   vertically */
+    align-content: center;   
+    border: 1px solid #138526;
+  }
+  
+  .footer__container__list__characteristic {
+    border: 1px solid #FFF;
+    opacity: 0.2;
+    margin-bottom: 1rem;
+    min-height  : 3rem;
+    width: calc(90%/4); 
+  }
+
+  .footer__container__list__characteristic__item {
+    color: #FFF;
+    font-family: Spartan;
+    font-size: 0.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1rem; 
+    letter-spacing: 0.04544rem;
+    text-transform: uppercase;
+    align-self: center;
+    padding-top: 1rem;
+    padding-left: 0.94rem;
+    padding-right: 0.94rem;
+
+  }
+  
+  .footer__container__list__characteristic__content {
+    color: #FFF;
+    font-family: Antonio;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.05625rem;
+    text-transform: uppercase;
+    border: 0px solid red;
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 0.94rem;
+    padding-top: 0.6rem;
+    padding-left: 0.94rem;
+
+  }
+
+}
+
+/* ##Device = Most of the Smartphones Mobiles */
+@media (max-width: 767px) {
+footer .footer__container {
+    border:0px solid red;
+}
     .footer__container__list {
         display: flex;
-        flex-direction: row;
-        justify-content:space-between;       /*   horizontally */
-        align-items: center;           /*   vertically */
-        align-content: center;   
-        border: 0px solid #138526;
+        flex-direction: column;
       }
       
       .footer__container__list__characteristic {
+        display: flex;
+        flex-direction: row;
         border: 1px solid #FFF;
         opacity: 0.2;
         margin-bottom: 1rem;
         min-height  : 3rem;
-        width: calc(85%/4);
-        padding-bottom: 1.69rem;
-        padding-left: 1.44rem;
+
       }
-    
-      .footer__container__list__characteristic__item {
-        color: #FFF;
-        font-family: Spartan;
-        font-size: 0.6875rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 1.5625rem; 
-        letter-spacing: 0.0625rem;
-        text-transform: uppercase;
-        padding-top: 1rem;
-        padding-left: 0.94rem;
-        padding-right: 0.94rem;
-    
-      }
-      
-      .footer__container__list__characteristic__content {
-        color: #FFF;
-        font-family: Antonio;
-        font-size: 2.5rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: -0.09375rem;
-        text-transform: uppercase;
-        border: 0px solid red;
-        display: flex;
-        justify-content: flex-start;
-        padding-right: 0.94rem;
-        padding-top: 0.6rem;
-        padding-left: 0.94rem;
-    
-      }
-    
-    }
-    
-    /* ##Device = Tablets, Ipads (portrait) */
-    @media only screen and (min-width: 768px) and (max-width: 1439px) {
-    footer .header__container {
-        border:1px solid red;
-    }
-    
-    .footer__container__list {
-        display: flex;
-        flex-direction: row;
-        justify-content:space-between;       /*   horizontally */
-        align-items: center;           /*   vertically */
-        align-content: center;   
-        border: 1px solid #138526;
-      }
-      
-      .footer__container__list__characteristic {
-        border: 1px solid #FFF;
-        opacity: 0.2;
-        margin-bottom: 1rem;
-        min-height  : 3rem;
-        width: calc(90%/4); 
-      }
-    
+
       .footer__container__list__characteristic__item {
         color: #FFF;
         font-family: Spartan;
@@ -94,90 +145,32 @@
         font-weight: 700;
         line-height: 1rem; 
         letter-spacing: 0.04544rem;
-        text-transform: uppercase;
+        text-transform: uppercase;        
+        width: 49%;        
         align-self: center;
-        padding-top: 1rem;
-        padding-left: 0.94rem;
-        padding-right: 0.94rem;
-    
+        padding-left: 1.5rem;
+        
       }
       
       .footer__container__list__characteristic__content {
         color: #FFF;
+        text-align: right;
         font-family: Antonio;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        letter-spacing: -0.05625rem;
-        text-transform: uppercase;
+        letter-spacing: -0.04688rem;
+        text-transform: uppercase;        
+        align-self: center;
         border: 0px solid red;
         display: flex;
-        justify-content: flex-start;
-        padding-right: 0.94rem;
-        padding-top: 0.6rem;
-        padding-left: 0.94rem;
-    
+        justify-content: flex-end;
+        width: 49%;
+        padding-right: 1.5rem;
+
       }
-    
-    }
-    
-    /* ##Device = Most of the Smartphones Mobiles */
-    @media (max-width: 767px) {
-    footer .footer__container {
-        border:0px solid red;
-    }
-        .footer__container__list {
-            display: flex;
-            flex-direction: column;
-          }
-          
-          .footer__container__list__characteristic {
-            display: flex;
-            flex-direction: row;
-            border: 1px solid #FFF;
-            opacity: 0.2;
-            margin-bottom: 1rem;
-            min-height  : 3rem;
-    
-          }
-    
-          .footer__container__list__characteristic__item {
-            color: #FFF;
-            font-family: Spartan;
-            font-size: 0.5rem;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 1rem; 
-            letter-spacing: 0.04544rem;
-            text-transform: uppercase;        
-            width: 49%;        
-            align-self: center;
-            padding-left: 1.5rem;
-            
-          }
-          
-          .footer__container__list__characteristic__content {
-            color: #FFF;
-            text-align: right;
-            font-family: Antonio;
-            font-size: 1.25rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            letter-spacing: -0.04688rem;
-            text-transform: uppercase;        
-            align-self: center;
-            border: 0px solid red;
-            display: flex;
-            justify-content: flex-end;
-            width: 49%;
-            padding-right: 1.5rem;
-    
-          }
-          
-    
-    }
-    
-    
+      
+
+}
     

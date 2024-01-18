@@ -5,11 +5,14 @@
 	import '$lib/styles/header.css';
 	import '$lib/styles/main.css';
 	import '$lib/styles/footer.css';
+	import 'reset-css'
+	import '@fontsource-variable/antonio';
+	import "@fontsource/spartan";
 </script>
 
 <Header />
 
-<main>
+<main class="main">
 	<slot />
 </main>
 
