@@ -1,30 +1,28 @@
 <script>
 console.log('test: ' + 2*6);
+let objectMenu = {
+  count: 3,
+  data: [
+    { id: 'jupiter', name: 'Jupiter' },
+    { id: 'mars', name: 'Mars' },
+    { id: 'mercury', name: 'Mercury' }
+  ],
+  id: 'mars',
+  name: 'Mars',
+  rotation: 88992000,
+  revolution: 59329912320,
+  };
+
 </script>
-
-<header>
-	<a href="/">Home</a>
-
-	<nav>
-		<ul>
-			<li>
-				<a href="/planet">Planet</a>
-			</li>
-			<li>
-				<a href="/planet/1">Pokemon 1</a>
-			</li>
-			<li>
-				<a href="/planet/2">Pokemon 2</a>
-			</li>
-			<li>
-				<a href="/planet/3">Pokemon 3</a>
-			</li>
-			<li>
-				<a href="/about">About</a>
-			</li>
-			<li>
-				<a href="/contact">Contact</a>
-			</li>
+			<header class="header">
+		  <div class="logo">
+			<a href="index.html">The Planets<span></span></a>
+		  </div>
+		  <input type="checkbox" id="menu-toggle">
+		  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+		  <ul class="menu">
+			{#each objectMenu.data as planet}
+			<a href="/planet/{planet.id}/{planet.id}">{planet.name}</a>
+		{/each}
 		</ul>
-	</nav>
 </header>
