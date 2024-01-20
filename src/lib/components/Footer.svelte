@@ -1,3 +1,23 @@
+<!-- Footer.svelte -->
+
+<script>
+	console.log('Footer.svelte: ' + 24 * 6);
+
+import { page } from '$app/stores';
+
+	const pager = $page;
+	console.log(pager.data);
+
+	let footerData = pager.data.product.then((result) => {
+		console.log('promiseStoresResult--');
+		//console.log(result);
+
+		return result;
+	});
+	console.log(footerData);
+
+</script>
+
 <footer class="footer">
     <div class="wrapper">
     <section class="footer__container">
