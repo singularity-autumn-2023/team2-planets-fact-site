@@ -8,12 +8,13 @@
 	import 'reset-css'
 	import '@fontsource-variable/antonio';
 	import "@fontsource/spartan";
+	export let data;
 </script>
 
-<Header />
+<Header incredibleData={data} />
 
 <main class="main">
-	<slot />
+    <slot />
 </main>
 
-<Footer />
+<Footer incredibleData={data} />
