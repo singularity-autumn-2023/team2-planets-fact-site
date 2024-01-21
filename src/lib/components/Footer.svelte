@@ -1,14 +1,16 @@
 <script>
+	export let incredibleData;
+
 	import { page } from '$app/stores';
 	const pager = $page;
 
 	let headerMenu = pager.data.superPlanets.then((result) => {
 		return result;
 	});
-// {pager.data.superPlanets.rotation} 
-// {pager.data.superPlanets.revolution}
-// {pager.data.superPlanets.radius}
-// {pager.data.superPlanets.temperature}
+	// {pager.data.superPlanets.rotation}
+	// {pager.data.superPlanets.revolution}
+	// {pager.data.superPlanets.radius}
+	// {pager.data.superPlanets.temperature}
 
 	let currentDate = new Date();
 
