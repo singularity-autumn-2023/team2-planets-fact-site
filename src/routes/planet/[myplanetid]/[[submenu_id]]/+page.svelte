@@ -1,5 +1,4 @@
 <script lang="ts">
-    // import Mercury from '$static/planets/mercury.svg';
 	export let data;
     interface SuperData {
         id: string;
@@ -16,23 +15,6 @@
         superData.overview = result.overview;
         superData.revolution = result.revolution;
     });
-    
-    // let superData = {};
-    // let superPlanets1 = data.superPlanets.then(result => {
-    //     superData.id = result.id;
-    //     superData.name = result.name;
-
-    //     return (result);
-    // });    
-
-    console.log('superData');
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-    console.log(superData.overview);
-    console.log('page svelte hahahahahahahah');
-    console.log(superData.name);
-    console.log(superData);
-    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
-    console.log(superData.overview);
 
     const iconMappings = {
         "mars": "/planets/mars.svg",
@@ -48,36 +30,38 @@
     let iconName = superData.name as keyof typeof iconMappings;
 </script>
 
-<article>
-	<h1>{superData.name}</h1>
-    <h1>{typeof superData.name}</h1>
-    <p>id: {superData.id}</p>
-</article>
-
 <div class="wrapper">
     <div class="planet-grid">
-        <picture>
-            <img src="/planets/mercury.svg" alt="fdsfsdfsfsdfs">
-        </picture> 
         <section class="planet-picture">
-        {#if superData.id in iconMappings}
-        <picture>
-            <img src={iconMappings[superData.id]} alt={superData.id} />
-        </picture>
-        {:else}
-            <p>Icon not found for {superData.id}</p>
-        {/if}
+            {#if superData.id in iconMappings}
+            <picture>
+                <img src={iconMappings[superData.id]} alt={superData.id} />
+            </picture>
+            {:else}
+                <p>Icon not found for {superData.id}</p>
+            {/if}
         </section>
         
         <section class="planet-description">
-            <h2 class="planet-description__name">{#await superData.name then hahahaha}{hahahaha}{/await}</h2>
-            {superData.revolution}
+            <h2 class="planet-description__name">
+                {#await superData.name then planet_name}
+                    {planet_name}
+                {/await}
+            </h2>
+
             <p class="planet-description__description">
-                {#await superData.overview["content"] then uraaaaaaaa}{uraaaaaaaa}{/await}
+                {#await superData.overview["content"] then uraaaaaaaa}
+                    {uraaaaaaaa}
+                {/await}
             </p>
     
             <p class="planet-description__source">
-                Source : <span class="planet-description__source_span">Wikipedia</span>
+                Source :
+                {#if superData.id in iconMappings}
+                    <a href="https://en.wikipedia.org/wiki/{superData.name}" class="planet-description__source_span">Wikipedia</a>
+                {:else}
+                    <a href="https://en.wikipedia.org/wiki/Solar_System" class="planet-description__source_span">Wikipedia</a>
+                {/if}
             </p>
         </section>
     
