@@ -18,6 +18,7 @@
         "uranus": "/planets/uranus.svg",
         "neptune": "/planets/neptune.svg",
     };
+
 </script>
 
 <div class="wrapper">
