@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { page } from '$app/stores';
+	const pager = $page;
+
 	export let data;
     interface SuperData {
         id: string;
@@ -50,9 +53,19 @@
             </h2>
 
             <p class="planet-description__description">
-                {#await superData.overview["content"] then uraaaaaaaa}
-                    {uraaaaaaaa}
-                {/await}
+                {#if pager.params['submenu_id'] == '1'}
+                    {#await superData.overview["content"] then planet_overview}
+                        {planet_overview}
+                    {/await}
+                {:else if pager.params['submenu_id'] == '2'}
+                    {#await superData.structure["content"] then planet_structure}
+                        {planet_structure}
+                    {/await}
+                {:else if pager.params['submenu_id'] == '3'}
+                    {#await superData.geology["content"] then planet_geology}
+                        {planet_geology}
+                    {/await}
+                {/if}
             </p>
     
             <p class="planet-description__source">
@@ -66,17 +79,23 @@
         </section>
     
         <section class="planet-buttons">
-            <button>
-                Overview
-            </button>
-            
-            <button>
-                Internal Structure
-            </button>
-            
-            <button>
-                Surface Geology
-            </button>
+            <form action="http://localhost:5173/planet/{superData.id}/1" method="get">
+                <button>
+                    Overview
+                </button>
+            </form>
+
+            <form action="http://localhost:5173/planet/{superData.id}/2" method="get">
+                <button>
+                    Internal Structure
+                </button>
+            </form>
+
+            <form action="http://localhost:5173/planet/{superData.id}/3" method="get">
+                <button>
+                    Surface Geology
+                </button>
+            </form>
         </section>
     </div>  
 </div> 
