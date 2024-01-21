@@ -37,6 +37,7 @@
 }
 
 .planet-description__name {
+    margin-bottom: 1.25rem;
     color: #FFF;
     font-family: Antonio;
     font-size: 5rem;
@@ -47,6 +48,7 @@
 }
 
 .planet-description__description {
+    margin-bottom: 1.5rem;
     color: #FFF;
     font-family: Spartan;
     font-size: 14px;
@@ -74,6 +76,10 @@
     font-weight: 700;
     line-height: 25px;
     text-decoration-line: underline;
+}
+
+.planet-description__source_span::after {
+    content: url("/static/arrow-in-right-diagonal.svg");
 }
  
  /* ##Device = Desktops */
