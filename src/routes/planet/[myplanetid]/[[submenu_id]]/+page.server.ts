@@ -1,4 +1,6 @@
 // @ts-nocheck
+/** @type {import('./$types').PageServerLoad} */
+import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
   const fetchData = async () => {
@@ -9,9 +11,12 @@ export async function load({ params }) {
     const data = await response.json();
     
     const newData = { ...data, ...dataAll};
-    console.log('Here is the data');
-    console.log(newData);  
-    return newData;
+    
+    if (newData) {
+      return newData;
+    }
+
+    error(404, 'Not found');
   }
 
   return {

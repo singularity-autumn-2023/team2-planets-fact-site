@@ -1,21 +1,10 @@
 <!-- Footer.svelte -->
 
 <script>
-
   import { page } from '$app/stores';
-
   const pager = $page;
-  console.log(pager);
-  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-  console.log(pager.data.superPlanets);
-
-  // let rotation = pager.data.superPlanets.rotation;
-  // console.log(rotation);
 
   let headerMenu = pager.data.superPlanets.then((result) => {
-      console.log('promiseForHeaderStoresResult--');
-      console.log(result);
-
       return result;
   });
 </script>
