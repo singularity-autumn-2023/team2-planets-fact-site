@@ -14,6 +14,7 @@
 
 .planet-description {
     max-width: 21.875rem;
+    margin-bottom: 1.4375rem;
 }
 
 .planet-buttons {
@@ -22,8 +23,8 @@
     gap: 1rem;
     max-width: 21.875rem;
 
-    & button {
-        background: #419EBB;
+    & .button {
+        background: #070724;
         padding: 0.75rem 5rem 0.75rem 1.75rem;
         color: #FFF;
         font-family: Spartan;
@@ -33,6 +34,13 @@
         line-height: 25px; /* 208.333% */
         letter-spacing: 2.571px;
         text-transform: uppercase;
+        border: 1px solid #FFF;
+        
+    }
+
+    & .button.active {
+        background: #419EBB;
+        opacity: 0.2;
     }
 }
 

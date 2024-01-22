@@ -67,19 +67,19 @@
     
         <section class="planet-buttons">
             <form action="http://localhost:5173/planet/{superData.id}/1" method="get">
-                <button>
+                <button class="button">
                     Overview
                 </button>
             </form>
 
             <form action="http://localhost:5173/planet/{superData.id}/2" method="get">
-                <button>
+                <button class="button">
                     Internal Structure
                 </button>
             </form>
 
             <form action="http://localhost:5173/planet/{superData.id}/3" method="get">
-                <button>
+                <button class="button">
                     Surface Geology
                 </button>
             </form>
