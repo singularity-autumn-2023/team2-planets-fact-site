@@ -1,28 +1,35 @@
-// @ts-nocheck
 /** @type {import('./$types').LayoutServerLoad} */
 import { error } from '@sveltejs/kit';
+import type { LayoutServerLoad } from './$types';
 
-export async function load() {
-    const fetchData = async () => {
-		const responseAll = await fetch(`http://localhost:8081/api/v1/planets/`);
-		const dataAll = await responseAll.json();
+type PlanetItem = {
+	id: string;
+	name: string;
+};
 
-		const planetsData = { ...dataAll };
-		const response = await fetch(`http://localhost:8081/api/v1/planets/${planetsData.data[0].id}`);
+type PlanetsResponse = {
+	count: number;
+	data: PlanetItem[];
+};
 
-		const data = await response.json();
-		const planetsAllData = { ...dataAll, ...data };		
+export const load: LayoutServerLoad = async () => {
+	try {
+		const response = await fetch(`http://localhost:8081/api/v1/planets/`);
 
-		console.log(planetsAllData);
-		
-		if (planetsAllData) {
-			return planetsAllData;
+		// NOTE: always do the check !!!!
+		if (!response.ok) {
+			await Promise.reject(new Error(`${response.status} - ${response.statusText}`));
 		}
 
-		error(404, 'Not found');
-	};
-	
-	return {
-		superPlanets: fetchData()
-	};
-}
+		const planets: PlanetsResponse = await response.json();
+
+		return {
+			planets
+		};
+	} catch (err) {
+		if (err instanceof Error) {
+			error(400, err.message);
+		}
+		error(404, 'Not found!');
+	}
+};
