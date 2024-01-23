@@ -10,9 +10,14 @@
     import '@fontsource-variable/antonio';
     import '@fontsource/spartan';
 
-    export let data: LayoutData;
+    export let data;
 	// NOTE: Here you data, use it.
-	console.log('data', data);
+    	console.log('LayoutDataData');
+
+	console.log( data);
+
+
+    
 </script>
 
 <Header incredibleData={data} />

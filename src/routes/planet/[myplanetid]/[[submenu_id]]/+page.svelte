@@ -2,6 +2,7 @@
     import { page } from '$app/stores';
 	const pager = $page;
 
+   
 	export let data;
     interface SuperData {
         id: string;
