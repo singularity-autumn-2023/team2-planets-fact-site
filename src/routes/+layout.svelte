@@ -11,7 +11,6 @@
     import '@fontsource/spartan';
 
     export let data: LayoutData;
-	console.log('data', data);
 </script>
 
 <Header links={data.planets.data} />
@@ -19,5 +18,3 @@
 <main class="main">
 	<slot />
 </main>
-
-<Footer incredibleData={data} />

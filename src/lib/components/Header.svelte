@@ -9,7 +9,7 @@
 
 <header class="header">
     <div class="logo">
-        <a href="index.html">The Planets<span></span></a>
+        <a href="index.html">The Planets</a>
     </div>
     <input type="checkbox" id="menu-toggle" />
     <label for="menu-toggle" class="menu-icon">&#9776;</label>

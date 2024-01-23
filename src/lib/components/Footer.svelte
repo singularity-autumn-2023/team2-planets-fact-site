@@ -1,5 +1,5 @@
 <script>
-	export let incredibleData;
+	export let statistics;
 	
 	let currentDate = new Date();
 

@@ -1,26 +1,45 @@
-// @ts-nocheck
 /** @type {import('./$types').PageServerLoad} */
 import { error } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
-export async function load({ params }) {
-  const fetchData = async () => {
-    const responseAll = await fetch(`http://localhost:8081/api/v1/planets/`);
-    const response = await fetch(`http://localhost:8081/api/v1/planets/${params.myplanetid}`);
-    
-    const dataAll = await responseAll.json();
-    const data = await response.json();
-    
-    const newData = { ...data, ...dataAll};
-    
-    if (newData) {
-      return newData;
-    }
+type PlanetInfo = {
+	geology: {
+		content: 'string';
+		source: 'string';
+	};
+	id: 'string';
+	name: 'string';
+	overview: {
+		content: 'string';
+		source: 'string';
+	};
+	radius: number;
+	revolution: number;
+	rotation: number;
+	structure: {
+		content: 'string';
+		source: 'string';
+	};
+	temperature: number;
+};
 
-    error(404, 'Not found');
-  }
+export const load: PageServerLoad = async ({ params }) => {
+	try {
+		const response = await fetch(`http://localhost:8081/api/v1/planets/${params.myplanetid}`);
 
-  return {
-    superPlanets: fetchData(),
-  }
-  
-}
+		if (!response.ok) {
+			await Promise.reject(new Error(`${response.status} - ${response.statusText}`));
+		}
+
+		const planetInfo: PlanetInfo = await response.json();
+
+		return {
+			planetInfo
+		};
+	} catch (err) {
+		if (err instanceof Error) {
+			error(400, err.message);
+		}
+		error(404, 'Not found!');
+	}
+};
