@@ -11,7 +11,6 @@
     import '@fontsource/spartan';
 
     export let data: LayoutData;
-	// NOTE: Here you data, use it.
 	console.log('data', data);
 </script>
 

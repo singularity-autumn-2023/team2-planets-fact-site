@@ -21,13 +21,14 @@
     console.log(incredibleData);
 
 </script>
-<!-- {#await incredibleData.superPlanets}
+
+{#await incredibleData.superPlanets}
 <p>...waiting</p>
 {:then rot}
 <p>{rot}</p>
 {:catch error}
 <p style="color: red">{error.message}</p>
-{/await} hours -->
+{/await} hours
 
 <header class="header">
     <div class="logo">

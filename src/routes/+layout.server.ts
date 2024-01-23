@@ -16,7 +16,6 @@ export const load: LayoutServerLoad = async () => {
 	try {
 		const response = await fetch(`http://localhost:8081/api/v1/planets/`);
 
-		// NOTE: always do the check !!!!
 		if (!response.ok) {
 			await Promise.reject(new Error(`${response.status} - ${response.statusText}`));
 		}
