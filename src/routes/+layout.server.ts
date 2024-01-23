@@ -1,3 +1,6 @@
+
+// @ts-nocheck
+
 /** @type {import('./$types').LayoutServerLoad} */
 import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
@@ -12,19 +15,25 @@ type PlanetsResponse = {
 	data: PlanetItem[];
 };
 
-export const load: LayoutServerLoad = async () => {
+export const load: LayoutServerLoad = async (params) => {
 	try {
-		const response = await fetch(`http://localhost:8081/api/v1/planets/`);
+		const responseAll = await fetch(`http://localhost:8081/api/v1/planets/`);
+
+		const responseFull = await fetch(`http://localhost:8081/api/v1/planets/${params.myplanetid}`);
+
+		//const dataFull = await responseFull.json();
 
 		// NOTE: always do the check !!!!
-		if (!response.ok) {
-			await Promise.reject(new Error(`${response.status} - ${response.statusText}`));
+		if (!responseAll.ok) {
+			await Promise.reject(new Error(`${responseAll.status} - ${responseAll.statusText}`));
 		}
 
-		const planets: PlanetsResponse = await response.json();
+		
+		const planets: PlanetsResponse = await responseAll.json();
 
 		return {
-			planets
+			planets,
+			ter: 'fgr' // dataFull
 		};
 	} catch (err) {
 		if (err instanceof Error) {

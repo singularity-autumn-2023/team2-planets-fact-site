@@ -90,7 +90,7 @@
         </section>
         
         <section class="planet-description">
-            <h2 class="planet-description__name">Mercury</h2>
+            <h2 class="planet-description__name">Mercury1</h2>
 
             <p class="planet-description__description">
                 {#if pager.params['submenu_id'] == '1'}
@@ -114,19 +114,19 @@
         </section>
     
         <section class="planet-buttons">
-            <form action="http://localhost:5173/planet/{superData.id}/1" method="get">
+            <form action="http://localhost:5173/planet/{superData.id}/1?{Math.random()*3600}" method="get">
                 <button class="button">
                     Overview
                 </button>
             </form>
 
-            <form action="http://localhost:5173/planet/{superData.id}/2" method="get">
+            <form action="http://localhost:5173/planet/{superData.id}/2?{Math.random()*3600}" method="get">
                 <button class="button">
                     Internal Structure
                 </button>
             </form>
 
-            <form action="http://localhost:5173/planet/{superData.id}/3" method="get">
+            <form action="http://localhost:5173/planet/{superData.id}/3?{Math.random()*3600}" method="get">
                 <button class="button">
                     Surface Geology
                 </button>

@@ -1,6 +1,8 @@
 <script>
     export let incredibleData;
-    let objectMenu = {
+    let objectMenu = incredibleData.planets;
+    /*
+    {
         count: 3,
         data: [
             { id: 'jupiter', name: 'JUPITER' },
@@ -17,8 +19,9 @@
         rotation: 88992000,
         revolution: 59329912320
     };
-    console.log("incredibleData");
-    console.log(incredibleData);
+
+    */
+
 
 </script>
 <!-- {#await incredibleData.superPlanets}
@@ -37,7 +40,7 @@
     <label for="menu-toggle" class="menu-icon">&#9776;</label>
     <ul class="menu">
         {#each objectMenu.data as planet}
-            <a href="/planet/{planet.id}/{1}">{planet.name}</a>
+            <a href="/planet/{planet.id}/{1}?{Math.random()*3600}">{planet.name}</a>
         {/each}
     </ul>
 </header>
