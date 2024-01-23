@@ -14,7 +14,7 @@
 	console.log('data', data);
 </script>
 
-<Header incredibleData={data} />
+<Header links={data.planets.data} />
 
 <main class="main">
 	<slot />
