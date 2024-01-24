@@ -3,8 +3,6 @@
         id: string;
         name: string;
     }>;
-    
-    console.log("links", links);
 </script>
 
 <header class="header">

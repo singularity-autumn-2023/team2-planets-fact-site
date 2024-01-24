@@ -1,60 +1,68 @@
-<script>
-	export let statistics;
-	
-	let currentDate = new Date();
+<script lang="ts">
+	export let statistics: {
+		geology: {
+			content: 'string';
+			source: 'string';
+		};
+		id: 'string';
+		name: 'string';
+		overview: {
+			content: 'string';
+			source: 'string';
+		};
+		radius: number;
+		revolution: number;
+		rotation: number;
+		structure: {
+			content: 'string';
+			source: 'string';
+		};
+		temperature: number;
+	};
 
-	let rotationTimestamp = new Date(5063040000);
-	let h = rotationTimestamp.getHours();
-	let mm = rotationTimestamp.getMinutes();
-	let outputRotation = `${h}.${mm} HOURS`;
-
-	let revolutionDate = new Date(7600608000);
-	let y = revolutionDate.getFullYear();
-	let month = revolutionDate.getFullYear();
-	let yearsDiff = currentDate.getFullYear() - revolutionDate.getFullYear();
-	let monthsDiff = currentDate.getMonth() - revolutionDate.getMonth();
-
-	if (monthsDiff < 0) {
-		yearsDiff = yearsDiff - 1;
-		monthsDiff = monthsDiff + 12;
-	}
-	let outputREVOLUTION = `${yearsDiff}.${monthsDiff} years`;
-
-	let radiusInMeters = 2439700;
-	let outputRadiusInKilometers = radiusInMeters / 1000 + ' km';
-
-	let temperatureInFahrenheit = 430;
-	let outputTemperatureInCelsius = Math.round(((temperatureInFahrenheit - 32) * 5) / 9) + '°c';
-
-	console.log(outputREVOLUTION);
+	$: rotationTime = statistics.rotation / 1000 / 60 / 60 / 24;
+	$: revolutionTime = statistics.revolution / 1000 / 60 / 60 / 24;
+	$: radius = statistics.radius / 1000;
+	$: temperature = statistics.temperature;
 </script>
 
 <footer class="footer">
 	<div class="wrapper">
 		<section class="footer__container">
-			&lt;!&ndash;#footer&ndash;&gt;
 			<div class="footer__container__list">
 				<section class="footer__container__list__characteristic">
 					<div class="footer__container__list__characteristic__item">ROTATION TIME</div>
-					<div class="footer__container__list__characteristic__content">{outputRotation}</div>
+					<div class="footer__container__list__characteristic__content">
+						{#if rotationTime >= 0.99}
+							{rotationTime.toFixed(2)} DAYS
+						{:else}
+							{(rotationTime * 24).toFixed(2)} HOURS
+						{/if}
+					</div>
 				</section>
 
 				<section class="footer__container__list__characteristic">
 					<div class="footer__container__list__characteristic__item">REVOLUTION TIME</div>
-					<div class="footer__container__list__characteristic__content">{outputREVOLUTION}</div>
+					<div class="footer__container__list__characteristic__content">
+						{#if revolutionTime <= 366}
+							{revolutionTime.toFixed(2)} DAYS
+						{:else}
+							{(revolutionTime / 365.25).toFixed(2)} YEARS
+						{/if}
+					</div>
 				</section>
 
 				<section class="footer__container__list__characteristic">
 					<div class="footer__container__list__characteristic__item">Radius</div>
 					<div class="footer__container__list__characteristic__content">
-						{outputRadiusInKilometers}
+						{radius} KM
 					</div>
 				</section>
 
 				<section class="footer__container__list__characteristic">
 					<div class="footer__container__list__characteristic__item">AVERAGE TEMP.</div>
 					<div class="footer__container__list__characteristic__content">
-						{outputTemperatureInCelsius}
+						{temperature}°C
 					</div>
 				</section>
 			</div>

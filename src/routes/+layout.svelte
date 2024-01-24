@@ -15,6 +15,4 @@
 
 <Header links={data.planets.data} />
 
-<main class="main">
-	<slot />
-</main>
+<slot />
