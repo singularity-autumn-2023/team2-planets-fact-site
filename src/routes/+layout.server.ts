@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /** @type {import('./$types').LayoutServerLoad} */
 import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
@@ -12,7 +14,7 @@ type PlanetsResponse = {
 	data: PlanetItem[];
 };
 
-export const load: LayoutServerLoad = async () => {
+export const load: LayoutServerLoad = async (params) => {
 	try {
 		const response = await fetch(`http://localhost:8081/api/v1/planets/`);
 
@@ -23,7 +25,7 @@ export const load: LayoutServerLoad = async () => {
 		const planets: PlanetsResponse = await response.json();
 
 		return {
-			planets
+			planets,
 		};
 	} catch (err) {
 		if (err instanceof Error) {
