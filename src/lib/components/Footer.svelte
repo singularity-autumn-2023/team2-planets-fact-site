@@ -1,69 +1,71 @@
-<script>
-	export let incredibleData;
+<script lang="ts">
+	export let statistics: {
+		geology: {
+			content: 'string';
+			source: 'string';
+		};
+		id: 'string';
+		name: 'string';
+		overview: {
+			content: 'string';
+			source: 'string';
+		};
+		radius: number;
+		revolution: number;
+		rotation: number;
+		structure: {
+			content: 'string';
+			source: 'string';
+		};
+		temperature: number;
+	};
 
-	 import { page } from '$app/stores';
-	 const pager = $page;
-
-    console.log("FOOTER-incredibleData");
-    console.log(page);
-
-	 let currentDate = new Date();
-	
-	 let rotationTimestamp = new Date(incredibleData.planets.data.rotation);
-	let h = rotationTimestamp.getHours();
-	let mm = rotationTimestamp.getMinutes();
-	let outputRotation = `${h}.${mm} HOURS`;
-	
-	let revolutionDate = new Date(incredibleData.planets.data.revolution);
- let y = revolutionDate.getFullYear();
-	let month = revolutionDate.getFullYear();
-	let yearsDiff = currentDate.getFullYear() - revolutionDate.getFullYear();
-	let monthsDiff = currentDate.getMonth() - revolutionDate.getMonth();
-	
-	 if (monthsDiff < 0) {
-		yearsDiff = yearsDiff - 1;
-		monthsDiff = monthsDiff + 12;
-	 }
-	let outputREVOLUTION = `${yearsDiff}.${monthsDiff} years`;
-	
-	 let radiusInMeters = incredibleData.planets.data.radius;
-	 let outputRadiusInKilometers = radiusInMeters / 1000 + ' km';
-	
-	 let temperatureInFahrenheit = incredibleData.planets.data.temperature;
-	 let outputTemperatureInCelsius = Math.round(((temperatureInFahrenheit - 32) * 5) / 9) + '°c';
-
-	console.log(outputREVOLUTION);
+	$: rotationTime = statistics.rotation / 1000 / 60 / 60 / 24;
+	$: revolutionTime = statistics.revolution / 1000 / 60 / 60 / 24;
+	$: radius = statistics.radius / 1000;
+	$: temperature = statistics.temperature;
 </script>
 
 <footer class="footer">
-		<div class="wrapper">
-			<section class="footer__container">
-				 
-				<div class="footer__container__list">
-					<section class="footer__container__list__characteristic">
-						<div class="footer__container__list__characteristic__item">ROTATION TIME</div>
-						<div class="footer__container__list__characteristic__content">{outputRotation}</div>
-					</section>
+	<div class="wrapper">
+		<section class="footer__container">
+			<div class="footer__container__list">
+				<section class="footer__container__list__characteristic">
+					<div class="footer__container__list__characteristic__item">ROTATION TIME</div>
+					<div class="footer__container__list__characteristic__content">
+						{#if rotationTime >= 0.99}
+							{rotationTime.toFixed(2)} DAYS
+						{:else}
+							{(rotationTime * 24).toFixed(2)} HOURS
+						{/if}
+					</div>
+				</section>
 
-					<section class="footer__container__list__characteristic">
-						<div class="footer__container__list__characteristic__item">REVOLUTION TIME</div>
-						<div class="footer__container__list__characteristic__content">{outputREVOLUTION}</div>
-					</section>
+				<section class="footer__container__list__characteristic">
+					<div class="footer__container__list__characteristic__item">REVOLUTION TIME</div>
+					<div class="footer__container__list__characteristic__content">
+						{#if revolutionTime <= 366}
+							{revolutionTime.toFixed(2)} DAYS
+						{:else}
+							{(revolutionTime / 365.25).toFixed(2)} YEARS
+						{/if}
+					</div>
+				</section>
 
-					<section class="footer__container__list__characteristic">
-						<div class="footer__container__list__characteristic__item">Radius</div>
-						<div class="footer__container__list__characteristic__content">
-							{outputRadiusInKilometers}
-						</div>
-					</section>
+				<section class="footer__container__list__characteristic">
+					<div class="footer__container__list__characteristic__item">Radius</div>
+					<div class="footer__container__list__characteristic__content">
+						{radius} KM
+					</div>
+				</section>
 
-					<section class="footer__container__list__characteristic">
-						<div class="footer__container__list__characteristic__item">AVERAGE TEMP.</div>
-						<div class="footer__container__list__characteristic__content">
-							{outputTemperatureInCelsius}
-						</div>
-					</section>
-				</div>
-			</section>
-		</div>
+				<section class="footer__container__list__characteristic">
+					<div class="footer__container__list__characteristic__item">AVERAGE TEMP.</div>
+					<div class="footer__container__list__characteristic__content">
+						{temperature}°C
+					</div>
+				</section>
+			</div>
+		</section>
+	</div>
 </footer>

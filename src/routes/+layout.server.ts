@@ -1,4 +1,3 @@
-
 // @ts-nocheck
 
 /** @type {import('./$types').LayoutServerLoad} */
@@ -17,23 +16,16 @@ type PlanetsResponse = {
 
 export const load: LayoutServerLoad = async (params) => {
 	try {
-		const responseAll = await fetch(`http://localhost:8081/api/v1/planets/`);
+		const response = await fetch(`http://localhost:8081/api/v1/planets/`);
 
-		const responseFull = await fetch(`http://localhost:8081/api/v1/planets/${params.myplanetid}`);
-
-		//const dataFull = await responseFull.json();
-
-		// NOTE: always do the check !!!!
-		if (!responseAll.ok) {
-			await Promise.reject(new Error(`${responseAll.status} - ${responseAll.statusText}`));
+		if (!response.ok) {
+			await Promise.reject(new Error(`${response.status} - ${response.statusText}`));
 		}
 
-		
-		const planets: PlanetsResponse = await responseAll.json();
+		const planets: PlanetsResponse = await response.json();
 
 		return {
 			planets,
-			ter: 'fgr' // dataFull
 		};
 	} catch (err) {
 		if (err instanceof Error) {

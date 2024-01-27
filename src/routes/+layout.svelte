@@ -10,20 +10,9 @@
     import '@fontsource-variable/antonio';
     import '@fontsource/spartan';
 
-    export let data;
-	// NOTE: Here you data, use it.
-    	console.log('LayoutDataData');
-
-	console.log( data);
-
-
-    
+    export let data: LayoutData;
 </script>
 
-<Header incredibleData={data} />
+<Header links={data.planets.data} />
 
-<main class="main">
-	<slot />
-</main>
-
-<Footer incredibleData={data} />
+<slot />
